@@ -1,0 +1,55 @@
+*{
+    text-align: center;
+}
+
+body{
+    background-color: darkslategrey;
+}
+
+header nav{
+    height: 50px;
+    background-color: darkgrey;
+    margin-top: -20px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+ul{
+    list-style: none;
+}
+
+.playerStats{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.last5{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tScores table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tScores table th{
+    width: 250px;
+    background-color: darkgrey;
+}
+
+.yScores table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.yScores table th{
+    width: 250px;
+    background-color: darkgrey;
+}
+

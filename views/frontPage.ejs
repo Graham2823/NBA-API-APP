@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<header>
+    <nav><h1>NBA 2022 Season</h1></nav>
+</header>
+<body>
+    <div class="This Season">
+    <div class="playerSearch">
+    <form action="/?_method=PUT" method="POST" id="playerPage">
+        <h3>Player Stats:</h3>
+        <label>First Name</label>
+        <input type="text" name="firstName">
+        <label>Last Name</label>
+        <input type="text" name="lastName">
+        <submit><button>Search</button></submit>
+    </form>
+    </div>
+    <!-- <div class="team search">
+        <form action="/?_method=PUT" method="POST">
+            <h3>Team Schedule:</h3>
+            <label>Team Name</label>
+            <input type="text">
+            <submit><button>Search</button></submit>
+        </form>
+    </div>
+    </div>
+    <div class="Historical">
+        <h2>Get players stats from past seasons</h2>
+        <form action="/?_method=PUT" method="POST">
+            <label>First Name</label>
+            <input type="text" name="pastFirstName">
+            <label>Last Name</label>
+            <input type="text" name="pastLastName">
+            <label>Season</label>
+            <input type="text">
+            <submit><button>Search</button></submit>
+        </form>
+    </div> -->
+    <div class="tScores">
+        <h1>Todays Schedule:</h1>
+        <table>
+            <thead>
+                <% for(let i = 0; i< tscores.scoreboard.games.length; i++) { %>
+                <th>
+                    <h3><%= tscores.scoreboard.games[i].homeTeam.teamTricode %>:<%= tscores.scoreboard.games[i].homeTeam.score %></h3>
+                    <h3>Vs</h3>
+                    <h3><%= tscores.scoreboard.games[i].awayTeam.teamTricode %>:<%= tscores.scoreboard.games[i].awayTeam.score %></h3>
+                    <h3><%= tscores.scoreboard.games[i].gameStatusText %></h3>
+                </th>
+                <% } %>
+            </thead>
+        </table>
+    </div>
+    <div class="yScores">
+        <h1>Yesterday's Schedule:</h1>
+        <form action="/" method="POST" id="boxScore"></form>
+        <table>
+            <thead>
+                <% for(let i = 0; i< yscores.data.length; i++) { %>
+                <th>
+                    <h3><%= yscores.data[i].home_team.abbreviation %>:<%= yscores.data[i].home_team_score %></h3>
+                    <h3>Vs</h3>
+                    <h3><%= yscores.data[i].visitor_team.abbreviation %>:<%= yscores.data[i].visitor_team_score %></h3>
+                    <h3><a href=<%= `/boxScore/${yscores.data[i].id}` %>><button>View Box Score</button></a></h3>
+                </th>
+                <% } %>
+            </thead>
+        </table>
+    </form>
+    </div>
+</body>
+</html>

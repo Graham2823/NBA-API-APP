@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <table class="playerInfo">
+        <thead>
+            <tr>
+                <th><img src=<%= details.player[0].strThumb %> alt=""></th>
+                <th><ul>
+                <li><%= data.data[0].first_name %> <%= data.data[0].last_name%></li>
+                <li><%= data.data[0].position %></li>
+                <li><%= details.player[0].strHeight %></li>
+                <li><%= data.data[0].team.full_name %></li>
+            </ul></th>
+        </tr>
+        </thead>
+    </table>
+    <table class="playerStats">
+        <thead>
+            <th>Season</th>
+            <th>Games Played</th>
+            <th>Minutes Per Game</th>
+            <th>Points Per Game</th>
+            <th>Rebounds Per Game</th>
+            <th>Assists Per Game</th>
+            <th>Steals Per Game</th>
+            <th>Blocks Per Game</th>
+            <th>Turnovers Per Game</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="season"><%= stats.data[0].season%></td>
+                <td class="gamesPlayed"><%= stats.data[0].games_played %></td>
+                <td class="minutesPerGame"><%= stats.data[0].min %></td>
+                <td class="pointsPerGame"><%= stats.data[0].pts %></td>
+                <td class="reboundsPerGame"><%= stats.data[0].reb %></td>
+                <td class="assistsPerGame"><%= stats.data[0].ast %></td>
+                <td class="stealsPerGame"><%= stats.data[0].stl %></td>
+                <td class="blocksPerGame"><%= stats.data[0].blk %></td>
+                <td class="turnoversPerGame"><%= stats.data[0].turnover %></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Game Log:</h2>
+    <table class="last5">
+        <thead>
+            <th>Date</th>
+            <th>Minutes</th>
+            <th>Points</th>
+            <th>Rebounds</th>
+            <th>Assists</th>
+            <th>Steals</th>
+            <th>Blocks</th>
+            <th>Turnovers</th>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i< gamelog.data.length; i++) { %>
+            <tr>
+            <td class="date"><%= gamelog.data[i].game.date %></td>
+            <td class="minutes"><%= gamelog.data[i].min %></td>
+            <td class="points"><%= gamelog.data[i].pts %></td>
+            <td class="rebounds"><%= gamelog.data[i].reb %></td>
+            <td class="assists"><%= gamelog.data[i].ast %></td>
+            <td class="steals"><%= gamelog.data[i].stl %></td>
+            <td class="blocks"><%= gamelog.data[i].blk %></td>
+            <td class="turnovers"><%= gamelog.data[i].turnover %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <div class="description">
+        <p><%= details.player[0].strDescriptionEN %></p>
+    </div>
+</body>
+</html>
