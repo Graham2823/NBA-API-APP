@@ -53,3 +53,16 @@ ul{
     background-color: darkgrey;
 }
 
+.boxScoreTable{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.teamName{
+    font-size: 25px;
+}
+
+.boxButton{
+    width:75%;
+    height: 50%;
+}

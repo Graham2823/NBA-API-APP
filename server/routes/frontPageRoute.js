@@ -2,20 +2,21 @@ const router = require('express').Router();
 const fetch = require('node-fetch');
 
 router.get('/', async (req, res)=>{
+    let date = new Date();
+    let todaysDate =  date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate());
     try{
-        await fetch(`https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json`)
-            .then(res => res.json())
+        await fetch(`https://www.balldontlie.io/api/v1/games?seasons[]=2022&start_date=${todaysDate}&end_date=${todaysDate}`)
+            .then(res=>res.json())
             .then((tscores)=>{
-                let date = new Date();
                 let yesterdaysDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate()-1);
                 fetch(`https://www.balldontlie.io/api/v1/games?seasons[]=2022&start_date=${yesterdaysDate}&end_date=${yesterdaysDate}`)
-                    .then(res => res.json())
-                    .then((yscores)=>{
-                        res.render('frontPage', {tscores, yscores});
-                    })
+                .then(res=>res.json())
+                .then((yscores)=>{
+                    res.render('frontPage', {tscores, yscores});
+                })
             })
     } catch(err){
-        console.log(err);
+        console.log(err)
     }
 })
 
@@ -49,7 +50,4 @@ router.put('/', async (req, res)=>{
     }
 })
 
-router.put('/', (req, res)=>{
-    res.render('working')
-})
 module.exports = router

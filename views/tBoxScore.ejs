@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<header>
+    <nav><h1>NBA 2022 Season</h1></nav>
+</header>
+<body>
+    <h1 class="teamName">
+        <%= homeTeam %>
+        </h1>
+        <table class="boxScoreTable">
+            <thead>
+                <th>Player Name</th>
+                <th>Minutes Played</th>
+                <th>FG</th>
+                <th>FT</th>
+                <th>3PT</th>
+                <th>Points</th>
+                <th>Rebounds</th>
+                <th>Assists</th>
+                <th>Steals</th>
+                <th>Blocks</th>
+                <th>Fouls</th>
+                <th>Turnovers</th>
+            </thead>
+            <tbody>
+            <% for(let i = 0; i< teamOneArr.length; i++) { %>
+            <tr>
+                <td><%= teamOneArr[i].player.first_name %> <%= teamOneArr[i].player.last_name %></td>
+                <td><%= teamOneArr[i].min %></td>
+                <td><%= teamOneArr[i].fgm %>/<%= teamOneArr[i].fga %></td>
+                <td><%= teamOneArr[i].ftm %>/<%= teamOneArr[i].fta %></td>
+                <td><%= teamOneArr[i].fg3m %>/<%= teamOneArr[i].fg3a %></td>
+                <td><%= teamOneArr[i].pts %></td>
+                <td><%= teamOneArr[i].reb %></td>
+                <td><%= teamOneArr[i].ast %></td>
+                <td><%= teamOneArr[i].stl %></td>
+                <td><%= teamOneArr[i].blk %></td>
+                <td><%= teamOneArr[i].pf %></td>
+                <td><%= teamOneArr[i].turnover %></td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <h1 class="teamName">
+            <%= awayTeam %>
+        </h1>
+        <table class="boxScoreTable">
+            <thead>
+                <th>Player Name</th>
+                <th>Minutes Played</th>
+                <th>FG</th>
+                <th>FT</th>
+                <th>3PT</th>
+                <th>Points</th>
+                <th>Rebounds</th>
+                <th>Assists</th>
+                <th>Steals</th>
+                <th>Blocks</th>
+                <th>Fouls</th>
+                <th>Turnovers</th>
+            </thead>
+            <tbody>
+            <% for(let i = 0; i< teamTwoArr.length; i++) { %>
+            <tr>
+                <td><%= teamTwoArr[i].player.first_name %> <%= teamTwoArr[i].player.last_name %></td>
+                <td><%= teamTwoArr[i].min %></td>
+                <td><%= teamTwoArr[i].fgm %>/<%= teamTwoArr[i].fga %></td>
+                <td><%= teamTwoArr[i].ftm %>/<%= teamTwoArr[i].fta %></td>
+                <td><%= teamTwoArr[i].fg3m %>/<%= teamTwoArr[i].fg3a %></td>
+                <td><%= teamTwoArr[i].pts %></td>
+                <td><%= teamTwoArr[i].reb %></td>
+                <td><%= teamTwoArr[i].ast %></td>
+                <td><%= teamTwoArr[i].stl %></td>
+                <td><%= teamTwoArr[i].blk %></td>
+                <td><%= teamTwoArr[i].pf %></td>
+                <td><%= teamTwoArr[i].turnover %></td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+</body>

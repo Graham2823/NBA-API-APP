@@ -18,11 +18,13 @@ const PORT= process.env.PORT;
 
 //routes
 const frontPageRoute = require('./server/routes/frontPageRoute.js');
-const boxScoreRoute = require('./server/routes/boxScoreRoute.js')
+const boxScoreRoute = require('./server/routes/yBoxScoreRoute.js')
+const tBoxScoreRoute = require('./server/routes/tBoxScoreRoute.js')
 // const playerPageRoute= require('./server/routes/playerPageRoute');
 
 app.use('/', frontPageRoute)
 app.use('/boxScore', boxScoreRoute);
+app.use('/tBoxScore', tBoxScoreRoute);
 // app.use('/playerPage', playerPageRoute);
 
 app.listen(PORT, ()=>{console.log(`server is running on http://localhost:${PORT}`)})
