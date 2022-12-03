@@ -22,7 +22,7 @@ router.get('/', async (req, res)=>{
 
 router.put('/', async (req, res)=>{
     const playerName = req.body.firstName + "_" + req.body.lastName
-    if (playerName != 'undefined_undefined'){
+    if (playerName != '_'){
     try{
         await fetch(`https://www.balldontlie.io/api/v1/players?search=${playerName}`)
         .then(res => res.json())
@@ -44,10 +44,67 @@ router.put('/', async (req, res)=>{
             })
             
         })
+        
     } catch(err){
         console.log(err);
     }
-    }
+}
 })
+
+
+
+
+
+
+
+// router.put('/', async (req, res)=>{
+//     const playerName = req.body.firstName + "_" + req.body.lastName
+//     try{
+//         if (playerName != '_'){
+//         await fetch(`https://www.balldontlie.io/api/v1/players?search=${playerName}`)
+//         .then(res => res.json())
+//         .then((data)=>{
+//             const playerID = data.data[0].id
+//             fetch(`https://www.balldontlie.io/api/v1/season_averages?season=2022&player_ids[]=${playerID}`)
+//             .then(res => res.json())
+//             .then((stats)=>{
+//                fetch(`https://www.balldontlie.io/api/v1/stats?seasons[]=2022&player_ids[]=${playerID}&postseason=false`)
+//                .then(res => res.json())
+//                .then((gamelog)=>{
+//                 fetch(`https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${req.body.firstName}%20${req.body.lastName}`)
+//                 .then(res => res.json())
+//                 .then((details)=>{
+//                     res.render('playerPage', {stats, data, gamelog, details});
+//                 })
+              
+//                })
+//             })
+            
+//         })
+
+//     } else{
+//         let team = req.body.teamSelect
+//             fetch(`https://www.balldontlie.io/api/v1/teams`)
+//             .then(res => res.json())
+//             .then((allTeams)=>{
+//                 for(let i = 0; i< allTeams.data.length; i++){
+//                     if(allTeams.data[i].full_name === team){
+//                         let teamID = allTeams.data[i].id
+//                         console.log(teamID)
+//                         for(let i=0; i<5; i++){
+//                         fetch(`https://www.balldontlie.io/api/v1/games?seasons[]=2022&team_ids[]=${teamID}&page=${i}`)
+//                         .then(res => res.json())
+//                         .then((teamSched)=>{
+//                             console.log(teamSched)
+//                             res.render('teamPage', {teamSched});
+//                         })
+//                     }
+//                     }
+//                 }
+//             })
+//     } 
+// }catch(err){
+//         console.log(err);
+//     }})
 
 module.exports = router

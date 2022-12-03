@@ -66,3 +66,28 @@ ul{
     width:75%;
     height: 50%;
 }
+
+.teamSearch{
+    padding-top: 25px;
+}
+
+nav a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-top: -30px;
+  }
+
+.topSched{
+    border-top: 1px solid black;
+    padding-top: 0px;
+  }
+
+.bottomSched{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
