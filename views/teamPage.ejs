@@ -16,13 +16,21 @@
         </ul>
 </nav>
 </header>
-<table>
-    <% for(let i = 0; i< schedule.length; i++) { %>
-    <tr class="teamSched">
+<div class="teamSchedule">
+<% for(let i = 0; i< schedule.length; i++) { %>
+<table class="scheduleTable" id="scheduleTable">
+    <th>
         <h3 class="topSched"><%= schedule[i].home_team.full_name %>:<%= schedule[i].home_team_score %></h3>
         <h3>Vs</h3>
         <h3><%= schedule[i].visitor_team.full_name %>:<%= schedule[i].visitor_team_score %></h3>
         <h3 class="bottomSched"><%= schedule[i].date %></h3>
-    </tr>
-    <% } %>
+        <h3><a href= "<%= `/boxScore/${schedule[i].id}/${schedule[i].home_team.full_name}/${schedule[i].visitor_team.full_name}/${schedule[i].date}` %>"><button class="boxButton">View Box Score</button></a></h3>
+        <% if(schedule[i].home_team.full_name === team && schedule[i].home_team_score > schedule[i].visitor_team_score || schedule[i].visitor_team.full_name === team && schedule[i].visitor_team_score > schedule[i].home_team_score) { %>
+            <h3 style = "background-color: green">Win</h3>
+             <% } if(schedule[i].home_team.full_name === team && schedule[i].home_team_score < schedule[i].visitor_team_score || schedule[i].visitor_team.full_name === team && schedule[i].visitor_team_score < schedule[i].home_team_score) {%>
+            <h3 style="background-color: red">Loss</h3>
+                <% } %>
+    </th>
 </table>
+</div>
+<% } %>

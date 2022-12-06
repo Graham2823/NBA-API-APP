@@ -37,6 +37,7 @@ router.put('/', async (req, res)=>{
                 fetch(`https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${req.body.firstName}%20${req.body.lastName}`)
                 .then(res => res.json())
                 .then((details)=>{
+                    gamelog.data.sort((a,b)=> Date.parse(a.game.date) - Date.parse(b.game.date) )
                     res.render('playerPage', {stats, data, gamelog, details});
                 })
               

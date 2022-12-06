@@ -1,19 +1,19 @@
 const router = require('express').Router();
 const fetch = require('node-fetch');
 
-router.get('/:gameID', async (req, res)=>{
+router.get('/:gameID/:homeTeam/:awayTeam/:date', async (req, res)=>{
         console.log(req.params)
         let gameID = req.params.gameID
-        let date = new Date();
-        let yesterdaysDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate()-1);
-        let todaysDate =  date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate());
+        let homeTeam = req.params.homeTeam
+        let awayTeam = req.params.awayTeam
+        let date = req.params.date;
         let Data = []
         let idArray = []
         let teamOneArr = []
         let teamTwoArr = []
         for(let i = 1; i < 3; i++){
     try{
-        await fetch(`https://www.balldontlie.io/api/v1/stats?game_ids[]=${gameID}&start_date=${yesterdaysDate}&end_date=${yesterdaysDate}&page=${i}`)
+        await fetch(`https://www.balldontlie.io/api/v1/stats?game_ids[]=${gameID}&start_date=${date}&end_date=${date}&page=${i}`)
         .then(res => res.json())
         .then((data)=>{
             for (let i = 0; i< data.data.length; i++) {
@@ -39,7 +39,7 @@ router.get('/:gameID', async (req, res)=>{
         console.log(err)
     }
 }
-    res.render('boxScore', {teamOneArr, teamTwoArr});
+    res.render('boxScore', {teamOneArr, teamTwoArr, homeTeam, awayTeam});
 })
 
 module.exports = router

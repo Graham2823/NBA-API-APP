@@ -28,7 +28,7 @@
                     <h3>Vs</h3>
                     <h3><%= tscores.data[i].visitor_team.abbreviation %>:<%= tscores.data[i].visitor_team_score %></h3>
                     <h3><%= tscores.data[i].time %></h3>
-                    <h3><a href= "<%= `/tBoxScore/${tscores.data[i].id}/${tscores.data[i].home_team.full_name}/${tscores.data[i].visitor_team.full_name}` %>"><button class="boxButton">View Box Score</button></a></h3>
+                    <h3><a href= "<%= `/BoxScore/${tscores.data[i].id}/${tscores.data[i].home_team.full_name}/${tscores.data[i].visitor_team.full_name}/${tscores.data[i].date}` %>"><button class="boxButton">View Box Score</button></a></h3>
                 </th>
                 <% } %>
             </thead>
@@ -44,7 +44,7 @@
                     <h3><%= yscores.data[i].home_team.abbreviation %>:<%= yscores.data[i].home_team_score %></h3>
                     <h3>Vs</h3>
                     <h3><%= yscores.data[i].visitor_team.abbreviation %>:<%= yscores.data[i].visitor_team_score %></h3>
-                    <h3><a href=<%= `/boxScore/${yscores.data[i].id}` %>><button class="boxButton">View Box Score</button></a></h3>
+                    <h3><a href="<%= `/BoxScore/${yscores.data[i].id}/${yscores.data[i].home_team.full_name}/${yscores.data[i].visitor_team.full_name}/${yscores.data[i].date}` %>"><button class="boxButton">View Box Score</button></a></h3>
                 </th>
                 <% } %>
             </thead>

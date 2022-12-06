@@ -37,8 +37,9 @@ router.put('/', async(req, res)=>{
                 }
             })
         }
-        console.log(schedule[81])  
-        res.render('teamPage', {schedule})  
+        // console.log(Date.parse(schedule[81].date))  
+        schedule.sort((a, b)=> Date.parse(a.date) - Date.parse(b.date))
+        res.render('teamPage', {schedule, team})  
               
 })
 

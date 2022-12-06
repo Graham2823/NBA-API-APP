@@ -18,7 +18,7 @@
 </header>
 <body>
     <h1 class="teamName">
-    <%= teamOneArr[0].team.full_name %>
+    <%= homeTeam %>
     </h1>
     <table class="boxScoreTable">
         <thead>
@@ -37,6 +37,7 @@
         </thead>
         <tbody>
         <% for(let i = 0; i< teamOneArr.length; i++) { %>
+            <% if(teamOneArr[i].min > 0) { %>
         <tr>
             <td><%= teamOneArr[i].player.first_name %> <%= teamOneArr[i].player.last_name %></td>
             <td><%= teamOneArr[i].min %></td>
@@ -52,10 +53,11 @@
             <td><%= teamOneArr[i].turnover %></td>
         </tr>
         <% } %>
+        <% } %>
         </tbody>
     </table>
     <h1 class="teamName">
-    <%= teamTwoArr[0].team.full_name %>
+    <%= awayTeam %>
     </h1>
     <table class="boxScoreTable">
         <thead>
@@ -74,6 +76,7 @@
         </thead>
         <tbody>
         <% for(let i = 0; i< teamTwoArr.length; i++) { %>
+            <% if(teamTwoArr[i].min > 0) {%> 
         <tr>
             <td><%= teamTwoArr[i].player.first_name %> <%= teamTwoArr[i].player.last_name %></td>
             <td><%= teamTwoArr[i].min %></td>
@@ -88,6 +91,7 @@
             <td><%= teamTwoArr[i].pf %></td>
             <td><%= teamTwoArr[i].turnover %></td>
         </tr>
+        <% } %>
         <% } %>
         </tbody>
     </table>
