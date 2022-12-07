@@ -61,6 +61,9 @@
         <thead>
             <th>Date</th>
             <th>Minutes</th>
+            <th>FG</th>
+            <th>FT</th>
+            <th>3PT</th>
             <th>Points</th>
             <th>Rebounds</th>
             <th>Assists</th>
@@ -72,8 +75,11 @@
             <% for(let i = gamelog.data.length-1; i >=0; i--) { %>
                <% if(gamelog.data[i].min > 0) {%>
             <tr>
-            <td class="date"><%= gamelog.data[i].game.date %></td>
+            <td class="date"><%= gamelog.data[i].game.date.slice(0, 10) %></td>
             <td class="minutes"><%= gamelog.data[i].min %></td>
+            <td><%= gamelog.data[i].fgm %>/<%= gamelog.data[i].fga %></td>
+            <td><%= gamelog.data[i].ftm %>/<%= gamelog.data[i].fta %></td>
+            <td><%= gamelog.data[i].fg3m %>/<%= gamelog.data[i].fg3a %></td>
             <td class="points"><%= gamelog.data[i].pts %></td>
             <td class="rebounds"><%= gamelog.data[i].reb %></td>
             <td class="assists"><%= gamelog.data[i].ast %></td>
