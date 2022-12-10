@@ -20,8 +20,9 @@ const PORT= process.env.PORT;
 const frontPageRoute = require('./server/routes/frontPageRoute.js');
 const boxScoreRoute = require('./server/routes/boxScoreRoute.js')
 // const tBoxScoreRoute = require('./server/routes/tBoxScoreRoute.js')
-const playerSearchRoute = require('./server/routes/playerPage')
+const playerSearchRoute = require('./server/routes/playerSearchPage')
 const teamSearchRoute = require('./server/routes/teamSearch');
+const playerPageRoute = require('./server/routes/playerPage');
 // const teamBoxScoreRoute = require('./server/routes/teamBoxScoreRoute')
 // const playerPageRoute= require('./server/routes/playerPageRoute');
 
@@ -30,6 +31,7 @@ app.use('/boxScore', boxScoreRoute);
 // app.use('/BoxScore', tBoxScoreRoute);
 app.use('/playerPage', playerSearchRoute);
 app.use('/teamPage', teamSearchRoute);
+app.use('/playerPage', playerPageRoute);
 // app.use('/teamBoxScore', teamBoxScoreRoute);
 // app.use('/playerPage', playerPageRoute);
 

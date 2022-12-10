@@ -90,3 +90,12 @@ nav a {
     background-color: darkgray;
   }
 
+  .playerLink {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .playerLink:hover{
+    text-decoration: underline;
+    color:darkgray
+  }
