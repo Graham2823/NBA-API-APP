@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<header>
+    <nav>
+        <h1>NBA 2022 Season</h1>
+            <a class="navOption" href="/">Home</a>
+            <a class="navOption" href="/playerPage">Players Page</a>
+            <a class="navOption" href="/teamPage">Team Page</a>
+            <a class="navOption" href="/standings">Standings</a>
+        </ul>
+</nav>
+</header>
+<body>
+<h3>STANDINGS PAGE</h3>
+<h3>Eastern Conference</h3>
+<table class="standingsTable">
+    <thead>
+        <th>Team</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Games Behind</th>
+        <th>Points For</th>
+        <th>Points Against</th>
+        <th>Streak</th>
+    </thead>
+    <tbody>
+    <% for(let j=0; j< 3; j++){ %>
+    <% for(let i=0; i< ec_teams[j].length; i++){ %>
+        <tr>
+            <td><%= ec_teams[j][i].market %> <%= ec_teams[j][i].name %></td>
+            <td><%= ec_teams[j][i].wins %></td>
+            <td><%= ec_teams[j][i].losses %></td>
+            <td><%= ec_teams[j][i].games_behind.conference %></td>
+            <td><%= ec_teams[j][i].points_for %></td>
+            <td><%= ec_teams[j][i].points_against %></td>
+            <td><%= ec_teams[j][i].streak.kind %><%= ec_teams[j][i].streak.length %></td>
+        </tr>
+        <% } %>
+        <% } %>
+    </tbody>
+</table>
+<% let wcr = 1 %>
+<h3>Western Conference</h3>
+<table class="standingsTable">
+    <thead>
+        <th>Team</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Games Behind</th>
+        <th>Points For</th>
+        <th>Points Against</th>
+        <th>Streak</th>
+    </thead>
+    <tbody>
+    <% for(let j=0; j< 3; j++){ %>
+    <% for(let i=0; i< wc_teams[j].length; i++){ %>
+        <tr>
+            <td><%= wc_teams[j][i].market %> <%= wc_teams[j][i].name %></td>
+            <td><%= wc_teams[j][i].wins %></td>
+            <td><%= wc_teams[j][i].losses %></td>
+            <td><%= wc_teams[j][i].games_behind.conference %></td>
+            <td><%= wc_teams[j][i].points_for %></td>
+            <td><%= wc_teams[j][i].points_against %></td>
+            <td><%= wc_teams[j][i].streak.kind %><%= wc_teams[j][i].streak.length %></td>
+        </tr>
+        <% } %>
+        <% } %>
+    </tbody>
+</table>
+</body>

@@ -99,3 +99,17 @@ nav a {
     text-decoration: underline;
     color:darkgray
   }
+
+.standingsTable{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.teamPageLink {
+    text-decoration: none;
+    color:black;
+}
+.teamPageLink:hover {
+    text-decoration: underline;
+    color: darkslategrey;
+}

@@ -13,6 +13,7 @@
             <a class="navOption" href="/">Home</a>
             <a class="navOption" href="/playerPage">Players Page</a>
             <a class="navOption" href="/teamPage">Team Page</a>
+            <a class="navOption" href="/standings">Standings</a>
         </ul>
 </nav>
 </header>
@@ -24,12 +25,12 @@
             <thead>
                 <% for(let i = 0; i< tscores.data.length; i++) { %>
                 <th>
-                    <h3><%= tscores.data[i].home_team.abbreviation %>
+                    <h3><a class="teamPageLink" href="<%=`/teamPage/${tscores.data[i].home_team.full_name}`%>"><%= tscores.data[i].home_team.abbreviation %></a>
                         <% if(tscores.data[i].home_team_score >0) {%>
                         :<%= tscores.data[i].home_team_score %></h3>
                         <% } %>
-                    <h3>Vs</h3>
-                    <h3><%= tscores.data[i].visitor_team.abbreviation %>
+                    <!-- <h3>vs</h3> -->
+                    <h3><a class="teamPageLink" href="<%=`/teamPage/${tscores.data[i].visitor_team.full_name}`%>"><%= tscores.data[i].visitor_team.abbreviation %></a>
                         <% if(tscores.data[i].visitor_team_score > 0) {%>
                         :<%= tscores.data[i].visitor_team_score %></h3>
                         <% } %>
@@ -54,9 +55,9 @@
             <thead>
                 <% for(let i = 0; i< yscores.data.length; i++) { %>
                 <th>
-                    <h3><%= yscores.data[i].home_team.abbreviation %>:<%= yscores.data[i].home_team_score %></h3>
-                    <h3>Vs</h3>
-                    <h3><%= yscores.data[i].visitor_team.abbreviation %>:<%= yscores.data[i].visitor_team_score %></h3>
+                    <h3><a class="teamPageLink" href="<%=`/teamPage/${yscores.data[i].home_team.full_name}`%>"><%= yscores.data[i].home_team.abbreviation %></a>:<%= yscores.data[i].home_team_score %></h3>
+                    <!-- <h3>vs</h3> -->
+                    <h3><a class="teamPageLink" href="<%=`/teamPage/${yscores.data[i].visitor_team.full_name}`%>"><%= yscores.data[i].visitor_team.abbreviation %></a>:<%= yscores.data[i].visitor_team_score %></h3>
                     <h3><a href="<%= `/BoxScore/${yscores.data[i].id}/${yscores.data[i].home_team.full_name}/${yscores.data[i].visitor_team.full_name}/${yscores.data[i].date}` %>"><button class="boxButton">View Box Score</button></a></h3>
                 </th>
                 <% } %>

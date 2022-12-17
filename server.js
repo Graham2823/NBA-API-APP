@@ -23,6 +23,8 @@ const boxScoreRoute = require('./server/routes/boxScoreRoute.js')
 const playerSearchRoute = require('./server/routes/playerSearchPage')
 const teamSearchRoute = require('./server/routes/teamSearch');
 const playerPageRoute = require('./server/routes/playerPage');
+const standingsRoute = require('./server/routes/standingsRoute');
+const teamPageRoute = require('./server/routes/teamPageRoute');
 // const teamBoxScoreRoute = require('./server/routes/teamBoxScoreRoute')
 // const playerPageRoute= require('./server/routes/playerPageRoute');
 
@@ -32,6 +34,8 @@ app.use('/boxScore', boxScoreRoute);
 app.use('/playerPage', playerSearchRoute);
 app.use('/teamPage', teamSearchRoute);
 app.use('/playerPage', playerPageRoute);
+app.use('/standings', standingsRoute);
+app.use('/teamPage', teamPageRoute);
 // app.use('/teamBoxScore', teamBoxScoreRoute);
 // app.use('/playerPage', playerPageRoute);
 

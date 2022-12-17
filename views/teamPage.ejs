@@ -13,6 +13,7 @@
             <a class="navOption" href="/">Home</a>
             <a class="navOption" href="/playerPage">Players Page</a>
             <a class="navOption" href="/teamPage">Team Page</a>
+            <a class="navOption" href="/standings">Standings</a>
         </ul>
 </nav>
 </header>
@@ -22,7 +23,7 @@
 <table class="scheduleTable" id="scheduleTable">
     <th>
         <h3 class="topSched"><%= schedule[i].home_team.full_name %>:<%= schedule[i].home_team_score %></h3>
-        <h3>Vs</h3>
+        <h3>vs</h3>
         <h3><%= schedule[i].visitor_team.full_name %>:<%= schedule[i].visitor_team_score %></h3>
         <h3 class="bottomSched"><%= schedule[i].date.slice(0, 10)%></h3>
         <h3 class="bottomSched"><%= schedule[i].status%></h3>
