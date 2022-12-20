@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 
 router.get('/:teamName', async(req, res)=>{
     let team = req.params.teamName
+    console.log(team)
    await fetch(`https://www.balldontlie.io/api/v1/teams`)
         .then(res => res.json())
         .then((teams)=>{

@@ -113,3 +113,13 @@ nav a {
     text-decoration: underline;
     color: darkslategrey;
 }
+
+.teamPageLinkStandings {
+    text-decoration: none;
+    color:black;
+}
+
+.teamPageLinkStandings:hover{
+    text-decoration: underline;
+    color: darkgray;
+}

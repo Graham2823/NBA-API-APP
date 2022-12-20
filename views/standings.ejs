@@ -22,6 +22,7 @@
 <h3>Eastern Conference</h3>
 <table class="standingsTable">
     <thead>
+        <th>Confernece Rank</th>
         <th>Team</th>
         <th>Wins</th>
         <th>Losses</th>
@@ -31,18 +32,17 @@
         <th>Streak</th>
     </thead>
     <tbody>
-    <% for(let j=0; j< 3; j++){ %>
-    <% for(let i=0; i< ec_teams[j].length; i++){ %>
+    <% for(let i=0; i< ec_full.length; i++){ %>
         <tr>
-            <td><%= ec_teams[j][i].market %> <%= ec_teams[j][i].name %></td>
-            <td><%= ec_teams[j][i].wins %></td>
-            <td><%= ec_teams[j][i].losses %></td>
-            <td><%= ec_teams[j][i].games_behind.conference %></td>
-            <td><%= ec_teams[j][i].points_for %></td>
-            <td><%= ec_teams[j][i].points_against %></td>
-            <td><%= ec_teams[j][i].streak.kind %><%= ec_teams[j][i].streak.length %></td>
+            <td><%=[i + 1]%></td>
+            <td><a class="teamPageLinkStandings" href="<%=`/teamPage/${ec_full[i].market} ${ec_full[i].name}`%>"><%= ec_full[i].market %> <%= ec_full[i].name %></a></td>
+            <td><%= ec_full[i].wins %></td>
+            <td><%= ec_full[i].losses %></td>
+            <td><%= ec_full[i].games_behind.conference %></td>
+            <td><%= ec_full[i].points_for %></td>
+            <td><%= ec_full[i].points_against %></td>
+            <td><%= ec_full[i].streak.kind %><%= ec_full[i].streak.length %></td>
         </tr>
-        <% } %>
         <% } %>
     </tbody>
 </table>
@@ -50,6 +50,7 @@
 <h3>Western Conference</h3>
 <table class="standingsTable">
     <thead>
+        <th>Conference Rank</th>
         <th>Team</th>
         <th>Wins</th>
         <th>Losses</th>
@@ -59,18 +60,17 @@
         <th>Streak</th>
     </thead>
     <tbody>
-    <% for(let j=0; j< 3; j++){ %>
-    <% for(let i=0; i< wc_teams[j].length; i++){ %>
+    <% for(let i=0; i< wc_full.length; i++){ %>
         <tr>
-            <td><%= wc_teams[j][i].market %> <%= wc_teams[j][i].name %></td>
-            <td><%= wc_teams[j][i].wins %></td>
-            <td><%= wc_teams[j][i].losses %></td>
-            <td><%= wc_teams[j][i].games_behind.conference %></td>
-            <td><%= wc_teams[j][i].points_for %></td>
-            <td><%= wc_teams[j][i].points_against %></td>
-            <td><%= wc_teams[j][i].streak.kind %><%= wc_teams[j][i].streak.length %></td>
+            <td><%=[i + 1]%></td>
+            <td><a class="teamPageLinkStandings" href="<%=`/teamPage/${wc_full[i].market} ${wc_full[i].name}`%>"><%= wc_full[i].market %> <%= wc_full[i].name %></a></td>
+            <td><%= wc_full[i].wins %></td>
+            <td><%= wc_full[i].losses %></td>
+            <td><%= wc_full[i].games_behind.conference %></td>
+            <td><%= wc_full[i].points_for %></td>
+            <td><%= wc_full[i].points_against %></td>
+            <td><%= wc_full[i].streak.kind %><%= wc_full[i].streak.length %></td>
         </tr>
-        <% } %>
         <% } %>
     </tbody>
 </table>

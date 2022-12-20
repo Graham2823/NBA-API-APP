@@ -11,6 +11,8 @@ router.get('/', async (req, res)=>{
    let wc_teams = []
    let wcTeams
    let ec_teams = []
+   let ec_full = []
+   let wc_full =[]
     try{
         fetch (`https://api.sportradar.com/nba/trial/v7/en/seasons/2022/REG/standings.json?api_key=${process.env.API_KEY}`)
         .then(res => res.json())
@@ -34,9 +36,20 @@ router.get('/', async (req, res)=>{
             for(let i=0; i<edivisions.length; i++){
                 ec_teams.push(edivisions[i].teams);
             }
-            // wc_teams.sort((a,b)=> a.calc_rank.conf_rank - b.calc_rank.conf_rank)
-            // console.log(wdivisions)
-            res.render('standings', {wc_teams, ec_teams})
+            for(let i=0; i< 3; i++){
+                for(let j=0; j<wc_teams[i].length; j++){
+                    wc_full.push(wc_teams[i][j])
+                }
+            }
+            for(let i=0; i< 3; i++){
+                for(let j=0; j<ec_teams[i].length; j++){
+                    ec_full.push(ec_teams[i][j])
+                }
+            }
+            wc_full.sort((a,b)=> a.calc_rank.conf_rank - b.calc_rank.conf_rank)
+            ec_full.sort((a,b)=> a.calc_rank.conf_rank - b.calc_rank.conf_rank)
+            // console.log(ec_full)
+            res.render('standings', {wc_full, ec_full})
         })
     } catch(err){
         console.log(err)
